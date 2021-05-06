@@ -1,0 +1,71 @@
+body#bg{
+	background-image: url(images/bg.jpg);
+}
+div#main-div{
+	text-align: center;
+}
+table#main-table{
+	width: 1066px;
+	height: 600px;
+	border: 5px;
+	border-color: black; 
+    border-style: solid;
+    text-align: center;
+    background-color: #555555;
+    border-spacing: 0;
+}
+td{
+	border: 4px;
+	border-color: black; 
+    border-style: solid;
+    text-align: center;
+
+}
+input.button{
+	width: 100px;
+	height: 100px;
+	margin: 8px;
+	border: 5px;
+	border-color: black; 
+    border-style: solid;
+    background-color: red;
+    cursor: pointer;
+}
+h2#input-h2{
+	font: Futura;
+	font-size: 20px;
+	font-color: black;
+	font-style: italic;
+	text-align: center;
+}
+h1#button-h1{
+	font: Futura;
+	font-size: 40px;
+	font-color: black;
+	text-align: center;
+}
+h1.table-state{
+	background-color: red;
+	font: Futura;
+	font-size: 24px;
+	font-style: italic;
+	font-color: black;
+	text-align: center;
+	width: 100%;
+}
+
+input{
+	width: 100px;
+	text-align: center;
+	border: 2px;
+	border-color: black; 
+    border-style: solid;
+    margin: 2px;
+}
+#classRed{
+  background-color: red;
+}
+
+#classGreen{
+  background-color: green;
+}
