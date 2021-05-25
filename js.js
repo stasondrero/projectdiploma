@@ -1,6 +1,8 @@
 const button1 = document.querySelector('#button1');
 const paragraph1 = document.querySelector('#state1');
 const resetButton1 = document.querySelector('#reset-button1');
+const orderDate1 = document.querySelector('#order-date1');
+const orderConfirm1 = document.querySelector('#order-confirm1');
 
 const button2 = document.querySelector('#button2');
 const paragraph2 = document.querySelector('#state2');
@@ -24,6 +26,7 @@ const resetButton6 = document.querySelector('#reset-button6');
 
 button1.addEventListener('click', updateButton1, false);
 resetButton1.addEventListener('click', resetTimer1, false); 
+orderConfirm1.addEventListener('click', order1, false);
 
 button2.addEventListener('click', updateButton2, false);
 resetButton2.addEventListener('click', resetTimer2, false);
@@ -40,16 +43,31 @@ resetButton5.addEventListener('click', resetTimer5, false);
 button6.addEventListener('click', updateButton6, false);
 resetButton6.addEventListener('click', resetTimer6, false);
 
+function order1(){
+  if(orderDate1.value == date){
+    paragraph1.textContent = 'Заброньовано';
+    paragraph1.setAttribute("id", "classOrder");
+    button1.setAttribute("id", "displayNone");
+    mySeconds1 = 0;
+  }
+  else if(orderDate1.value != date){
+    paragraph1.textContent = 'Вільно';
+    paragraph1.setAttribute("id", "classGreen");
+    button1.setAttribute("id", "classGreen");
+    mySeconds1 = 0;
+  }
+}
+
 function updateButton1(){
   if (paragraph1.textContent === 'Вільно'){
     paragraph1.textContent = 'Занято';
     paragraph1.setAttribute("id", "classRed");
-    button1.setAttribute("id", "classRed");
-    mySeconds = 0;   
+    button1.setAttribute("id", "displayNone");
+    mySeconds1 = 0;   
 }
-  else{
-    paragraph1.textContent = 'Занято';
-    paragraph1.setAttribute("id", "classRed");
+  else if (paragraph1.textContent === 'Занято'){
+    paragraph1.textContent = 'Вільно';
+    paragraph1.setAttribute("id", "classGreen");
     button1.setAttribute("id", "classGreen");  
   }
 } 
@@ -58,67 +76,71 @@ function updateButton2(){
   if (paragraph2.textContent === 'Вільно'){
     paragraph2.textContent = 'Занято';
     paragraph2.setAttribute("id", "classRed");
-    button2.setAttribute("id", "classRed");
-    mySeconds = 0;   
+    button2.setAttribute("id", "displayNone");
+    mySeconds2 = 0;   
 }
-  else{
-    paragraph2.textContent = 'Занято';
-    paragraph2.setAttribute("id", "classRed");
+  else if (paragraph2.textContent === 'Занято'){
+    paragraph2.textContent = 'Вільно';
+    paragraph2.setAttribute("id", "classGreen");
     button2.setAttribute("id", "classGreen");  
   }
-}
+} 
+
 function updateButton3(){
   if (paragraph3.textContent === 'Вільно'){
     paragraph3.textContent = 'Занято';
     paragraph3.setAttribute("id", "classRed");
-    button3.setAttribute("id", "classRed");
-    mySeconds = 0;   
+    button3.setAttribute("id", "displayNone");
+    mySeconds3 = 0;   
 }
-  else{
-    paragraph3.textContent = 'Занято';
-    paragraph3.setAttribute("id", "classRed");
+  else if (paragraph3.textContent === 'Занято'){
+    paragraph3.textContent = 'Вільно';
+    paragraph3.setAttribute("id", "classGreen");
     button3.setAttribute("id", "classGreen");  
   }
-}
+} 
+
 function updateButton4(){
   if (paragraph4.textContent === 'Вільно'){
     paragraph4.textContent = 'Занято';
     paragraph4.setAttribute("id", "classRed");
-    button4.setAttribute("id", "classRed");
-    mySeconds = 0;   
+    button4.setAttribute("id", "displayNone");
+    mySeconds4 = 0;   
 }
-  else{
-    paragraph4.textContent = 'Занято';
-    paragraph4.setAttribute("id", "classRed");
+  else if (paragraph4.textContent === 'Занято'){
+    paragraph4.textContent = 'Вільно';
+    paragraph4.setAttribute("id", "classGreen");
     button4.setAttribute("id", "classGreen");  
   }
-}
+} 
+
 function updateButton5(){
   if (paragraph5.textContent === 'Вільно'){
     paragraph5.textContent = 'Занято';
     paragraph5.setAttribute("id", "classRed");
-    button5.setAttribute("id", "classRed");
-    mySeconds = 0;   
+    button5.setAttribute("id", "displayNone");
+    mySeconds5 = 0;   
 }
-  else{
-    paragraph5.textContent = 'Занято';
-    paragraph5.setAttribute("id", "classRed");
-    button1.setAttribute("id", "classGreen");  
+  else if (paragraph5.textContent === 'Занято'){
+    paragraph5.textContent = 'Вільно';
+    paragraph5.setAttribute("id", "classGreen");
+    button5.setAttribute("id", "classGreen");  
   }
-}
+} 
+
 function updateButton6(){
   if (paragraph6.textContent === 'Вільно'){
     paragraph6.textContent = 'Занято';
     paragraph6.setAttribute("id", "classRed");
-    button6.setAttribute("id", "classRed");
-    mySeconds = 0;   
+    button6.setAttribute("id", "displayNone");
+    mySeconds6 = 0;   
 }
-  else{
-    paragraph6.textContent = 'Занято';
-    paragraph6.setAttribute("id", "classRed");
+  else if (paragraph6.textContent === 'Занято'){
+    paragraph6.textContent = 'Вільно';
+    paragraph6.setAttribute("id", "classGreen");
     button6.setAttribute("id", "classGreen");  
   }
-}
+} 
 
 
 var mySeconds1;
@@ -484,15 +506,63 @@ window.onload = function(){
     startCounter6();  
   }
 }
-
-
-function asdfg(){
-  var timeNow = document.getElementById("span-timeNow");
+  
   var today = new Date();
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+  var timeNow = document.getElementById("span-timeNow");
+  var todayHours = today.getHours();
+  var todayMinutes = today.getMinutes();
+  var todaySeconds = today.getSeconds();
+  var todayMonth = today.getMonth() + 1;
+  var todayDay = today.getDate();
+
+  if(todayHours < 10){
+    todayHours = "0" + todayHours;
+  }
+  if(todayMinutes < 10){
+    todayMinutes = "0" + todayMinutes;
+  }
+  if(todaySeconds < 10){
+    todaySeconds = "0" + todaySeconds;
+  }
+  if(todayMonth < 10){
+    todayMonth = "0" + todayMonth;
+  }
+  if(todayDay < 10){
+    todayDay = "0" + todayDay;
+  }
+  var time = todayHours + ":" + todayMinutes + ":" + todaySeconds;
+  var date = todayMonth+'/'+todayDay+'/'+today.getFullYear();
+  var dateTime =  time+ ' ' + date;
+  var timeChange = timeNow.textContent = dateTime;
+  
+function showTimeNow(){
+  var today = new Date();
+  var timeNow = document.getElementById("span-timeNow");
+  var todayHours = today.getHours();
+  var todayMinutes = today.getMinutes();
+  var todaySeconds = today.getSeconds();
+  var todayMonth = today.getMonth() + 1;
+  var todayDay = today.getDate();
+
+  if(todayHours < 10){
+    todayHours = "0" + todayHours;
+  }
+  if(todayMinutes < 10){
+    todayMinutes = "0" + todayMinutes;
+  }
+  if(todaySeconds < 10){
+    todaySeconds = "0" + todaySeconds;
+  }
+  if(todayMonth < 10){
+    todayMonth = "0" + todayMonth;
+  }
+  if(todayDay < 10){
+    todayDay = "0" + todayDay;
+  }
+  var time = todayHours + ":" + todayMinutes + ":" + todaySeconds;
+  var date = todayDay +'-'+ todayMonth +'-'+ today.getFullYear();
   var dateTime =  time+ ' ' + date;
   var timeChange = timeNow.textContent = dateTime;
 }
-asdfg();
-var qwerty = setInterval(asdfg,1000);
+showTimeNow();
+var showTimeNowInterval = setInterval(showTimeNow,1000);

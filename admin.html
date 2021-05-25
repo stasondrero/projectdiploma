@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Owner Panel</title>
+		<link rel = "stylesheet" type = "text/css" href = "style.css">
+	</head>
+<body id = 'bg'>
+	<div id = 'main-div' align = "center">
+		<div id = "admin-div">
+			<h1 id = "admin-text">
+				Кількість замовлень за день: <br>
+				Кількість замовлень стола №1: <br>
+				Кількість замовлень стола №2: <br>
+				Кількість замовлень стола №3: <br>
+				Кількість замовлень стола №4: <br>
+				Кількість замовлень стола №5: <br>
+				Кількість замовлень стола №6: <br>
+				Касова виручка за день: <br>
+			</h1>
+			<input type = "button" name = "stat-reset" value = "Скинути статистику" id = "stat-reset"><br>
+		</div>
+		<div id = "div-timeNow">
+			<h2 id = "span-timeNow"></h2>
+		</div>
+	</div>
+</body>
+	<script type="text/javascript">
+		function showTimeNow(){
+  			var today = new Date();
+  			var timeNow = document.getElementById("span-timeNow");
+  			var todayHours = today.getHours();
+  			var todayMinutes = today.getMinutes();
+  			var todaySeconds = today.getSeconds();
+  			var todayMonth = today.getMonth() + 1;
+  			var todayDay = today.getDate();
+
+  			if(todayHours < 10){
+   				todayHours = "0" + todayHours;
+  			}
+		 	if(todayMinutes < 10){
+		    	todayMinutes = "0" + todayMinutes;
+		  	}
+		  	if(todaySeconds < 10){
+		    	todaySeconds = "0" + todaySeconds;
+		  	}
+		  	if(todayMonth < 10){
+		    	todayMonth = "0" + todayMonth;
+		  	}
+		  	if(todayDay < 10){
+		    	todayDay = "0" + todayDay;
+		  	}
+		  	var time = todayHours + ":" + todayMinutes + ":" + todaySeconds;
+		  	var date = todayDay +'-'+ todayMonth +'-'+ today.getFullYear();
+		  	var dateTime =  time+ ' ' + date;
+		  	var timeChange = timeNow.textContent = dateTime;
+		}
+		showTimeNow();
+		var showTimeNowInterval = setInterval(showTimeNow,1000);
+	</script>
+</html>

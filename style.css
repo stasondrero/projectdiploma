@@ -3,7 +3,7 @@ body#bg{
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-div#main-div{
+#main-div{
 	width: 1280px;
 	height: 720px;
 	border: 5px;
@@ -59,19 +59,91 @@ input{
 #classRed{
   background-color: red;
 }
-
+#classOrder{
+  background-color: yellow;
+}
 #classGreen{
   background-color: green;
 }
 div.button-div{
 	float: left;
 	padding: 29px;
+	width: 12%;
 }
 h2#span-timeNow{
 	background-color: white;
-	margin-top: 662px;
+	margin-top: 4%;
 	font: Futura;
 	font-size: 50px;
 	font-style: italic;
 	font-color: black;
+}
+#displayNone{
+	display: none;
+}
+.reset-button{
+	width: 95%;
+	text-align: center;
+}
+#stat-reset{
+	position: absolute;
+	width: 50%;
+	text-align: center;
+	left: 25%;
+}
+#authorization{
+
+}
+#authorization-text{
+	text-align: center;
+	width: 100%;
+	font: Futura;
+	font-size: 35px;
+	font-style: italic;
+	font-color: black;
+}
+#authorization-div{
+	position: absolute;
+	text-align: center;
+	top: 12.5%;
+	border: 5px;
+	width: 240px;
+	height: 135px;
+	border-color: black; 
+    border-style: solid;
+    text-align: center;
+    background-color: #555555;
+}
+#admin-text{
+	text-align: left;
+	font: Futura;
+	font-size: 25px;
+	font-style: italic;
+	font-color: black;
+}
+#admin-div{
+	position: absolute;
+	left: 32%;
+	top: 18%;
+	width: 32%;
+	height: 18%;
+}
+.date{
+	width: 90%;
+	text-align: center;
+}
+.order-date{
+	width: 95%;
+	text-align: center;
+}
+.order-confirm{
+	width: 95%;
+	text-align: center;
+}
+.order-time{
+	width: 95%;
+	text-align: center;
+}
+#div-price{
+
 }
