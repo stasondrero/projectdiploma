@@ -1,0 +1,10 @@
+<div id = 'authorization-div' align = "center">
+
+		<label id = "authorization-text">јвторизац≥€</label><br><br>
+		<form action = "" method = "POST">
+			<input type = "text" name = "login" id = "authorization-login"><br>
+			<input type = "password" name = "password" id = "authorization-password"><br>
+			<input type = "submit" name = "submit" id = "authorization-submit" value = "¬х≥д"><br>
+		</form>
+
+	</div>

@@ -1,8 +1,6 @@
 const button1 = document.querySelector('#button1');
 const paragraph1 = document.querySelector('#state1');
 const resetButton1 = document.querySelector('#reset-button1');
-const orderDate1 = document.querySelector('#order-date1');
-const orderConfirm1 = document.querySelector('#order-confirm1');
 
 const button2 = document.querySelector('#button2');
 const paragraph2 = document.querySelector('#state2');
@@ -26,7 +24,6 @@ const resetButton6 = document.querySelector('#reset-button6');
 
 button1.addEventListener('click', updateButton1, false);
 resetButton1.addEventListener('click', resetTimer1, false); 
-orderConfirm1.addEventListener('click', order1, false);
 
 button2.addEventListener('click', updateButton2, false);
 resetButton2.addEventListener('click', resetTimer2, false);
@@ -50,11 +47,86 @@ function order1(){
     button1.setAttribute("id", "displayNone");
     mySeconds1 = 0;
   }
-  else if(orderDate1.value != date){
+  if(orderDate1.value != date){
     paragraph1.textContent = 'Вільно';
     paragraph1.setAttribute("id", "classGreen");
     button1.setAttribute("id", "classGreen");
     mySeconds1 = 0;
+  }
+}
+
+function order2(){
+  if(orderDate2.value == date){
+    paragraph2.textContent = 'Заброньовано';
+    paragraph2.setAttribute("id", "classOrder");
+    button2.setAttribute("id", "displayNone");
+    mySeconds2 = 0;
+  }
+  if(orderDate2.value != date){
+    paragraph2.textContent = 'Вільно';
+    paragraph2.setAttribute("id", "classGreen");
+    button1.setAttribute("id", "classGreen");
+    mySeconds2 = 0;
+  }
+}
+
+function order3(){
+  if(orderDate3.value == date){
+    paragraph3.textContent = 'Заброньовано';
+    paragraph3.setAttribute("id", "classOrder");
+    button3.setAttribute("id", "displayNone");
+    mySeconds3 = 0;
+  }
+  if(orderDate3.value != date){
+    paragraph3.textContent = 'Вільно';
+    paragraph3.setAttribute("id", "classGreen");
+    button3.setAttribute("id", "classGreen");
+    mySeconds3 = 0;
+  }
+}
+
+function order4(){
+  if(orderDate4.value == date){
+    paragraph4.textContent = 'Заброньовано';
+    paragraph4.setAttribute("id", "classOrder");
+    button4.setAttribute("id", "displayNone");
+    mySeconds4 = 0;
+  }
+  if(orderDate4.value != date){
+    paragraph4.textContent = 'Вільно';
+    paragraph4.setAttribute("id", "classGreen");
+    button4.setAttribute("id", "classGreen");
+    mySeconds4 = 0;
+  }
+}
+
+function order5(){
+  if(orderDate5.value == date){
+    paragraph5.textContent = 'Заброньовано';
+    paragraph5.setAttribute("id", "classOrder");
+    button5.setAttribute("id", "displayNone");
+    mySeconds5 = 0;
+  }
+  if(orderDate5.value != date){
+    paragraph5.textContent = 'Вільно';
+    paragraph5.setAttribute("id", "classGreen");
+    button5.setAttribute("id", "classGreen");
+    mySeconds5 = 0;
+  }
+}
+
+function order6(){
+  if(orderDate6.value == date){
+    paragraph6.textContent = 'Заброньовано';
+    paragraph6.setAttribute("id", "classOrder");
+    button6.setAttribute("id", "displayNone");
+    mySeconds6 = 0;
+  }
+  if(orderDate6.value != date){
+    paragraph6.textContent = 'Вільно';
+    paragraph6.setAttribute("id", "classGreen");
+    button6.setAttribute("id", "classGreen");
+    mySeconds6 = 0;
   }
 }
 
@@ -530,8 +602,9 @@ window.onload = function(){
   if(todayDay < 10){
     todayDay = "0" + todayDay;
   }
+
   var time = todayHours + ":" + todayMinutes + ":" + todaySeconds;
-  var date = todayMonth+'/'+todayDay+'/'+today.getFullYear();
+  var date = todayMonth+ '/' +todayDay+ '/' +today.getFullYear();
   var dateTime =  time+ ' ' + date;
   var timeChange = timeNow.textContent = dateTime;
   

@@ -1,9 +1,10 @@
-#define p1 3
-#define p2 4
-#define p3 5
-#define p4 6
-#define p5 7
-#define p6 8
+#define p1 5
+#define p2 6
+#define p3 7
+#define p4 8
+#define p5 9
+#define p6 10
+#define pON 12
 
 int incomingByte;
 int pin;
@@ -18,18 +19,20 @@ void setup(){
   pinMode(p4, OUTPUT);
   pinMode(p5, OUTPUT);
   pinMode(p6, OUTPUT);
+  pinMode(pON, OUTPUT);
+  digitalWrite(pON,HIGH);
   pinCount = 6;
 }
 void loop(){
   if(Serial.available() > 0){
     incomingByte = Serial.parseInt();
-    pin = ((incomingByte - incomingByte % 10) / 10) + 2;
+    pin = ((incomingByte - incomingByte % 10) / 10) + 4;
     mode = incomingByte % 10;
 
     if(mode != 0 && mode != 1){
       mode = 0;
     }
-    if(pin <= pinCount + 2){
+    if(pin <= pinCount + 4){
       Serial.println(pin);
       Serial.println(mode);
       digitalWrite(pin, mode);

@@ -71,9 +71,11 @@ div.button-div{
 	width: 12%;
 }
 h2#span-timeNow{
+	position: absolute;
 	background-color: white;
-	margin-top: 4%;
+	top: 86.2%;
 	font: Futura;
+	width: 100%;
 	font-size: 50px;
 	font-style: italic;
 	font-color: black;
@@ -145,5 +147,21 @@ h2#span-timeNow{
 	text-align: center;
 }
 #div-price{
-
+	position: absolute;
+	top: 70%;
+	left: 32%;
+}
+#ordermenu-text{
+	text-align: left;
+	font: Futura;
+	font-size: 40px;
+	font-style: italic;
+	font-color: black;
+}
+#order-button{
+	text-align: left;
+	font: Futura;
+	font-size: 40px;
+	font-style: italic;
+	font-color: black;
 }
